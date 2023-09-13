@@ -1,0 +1,24 @@
+plugins {
+  // https://github.com/nemerosa/versioning
+  id 'net.nemerosa.versioning' version '2.14.0'
+}
+
+ext {
+  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/develop/v5/build.gradle"
+  interlokVersion = '5.0-SNAPSHOT'
+
+  includeWar='true'
+}
+
+allprojects {
+  apply from: "${interlokParentGradle}"
+  // specify the version of the configuration.
+  version=versioning.info.full
+}
+
+
+dependencies {
+  interlokRuntime ("com.adaptris:interlok-amqp:$interlokVersion") { changing=true }
+
+  interlokJavadocs group: "com.adaptris", name: "interlok-amqp", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+}

@@ -1,0 +1,18 @@
+```plantuml
+@startuml
+skinparam componentStyle rectangle
+
+package "RabbitMQ" {
+  [DEV.QUEUE.1]
+  [DEV.QUEUE.2]
+}
+
+node "INTERLOK" {
+  [AMQP]
+}
+
+[AMQP] --> [DEV.QUEUE.1]
+[DEV.QUEUE.1] --> [AMQP]
+[AMQP] --> [DEV.QUEUE.2]
+@enduml
+```
