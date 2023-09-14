@@ -1,5 +1,8 @@
 # AMQP Testing
 
+[![license](https://img.shields.io/github/license/interlok-testing/testing_amqp.svg)](https://github.com/interlok-testing/testing_amqp/blob/develop/LICENSE)
+[![Actions Status](https://github.com/interlok-testing/testing_amqp/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/interlok-testing/testing_amqp/actions/workflows/gradle-build.yml)
+
 Project tests interlok-amqp features
 
 ## What it does
