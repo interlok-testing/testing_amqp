@@ -7,11 +7,9 @@
   "uidInXincludeCompntListFileName" : false,
   "xincludeXpaths" : { },
   "additionalFiles" : {
-    "jetty.xml" : "jetty.xml",
-    "webdefault.xml" : "webdefault.xml",
     "bootstrap.properties" : "bootstrap.properties",
     "log4j2.xml" : "log4j2.xml"
   },
-  "optionalComponentsInUse" : [ "com.adaptris:interlok-amqp:4.0-SNAPSHOT" ],
+  "optionalComponentsInUse" : [ "com.adaptris:interlok-amqp:5.0-SNAPSHOT" ],
   "structured" : true
 }
