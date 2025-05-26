@@ -1,19 +1,17 @@
 plugins {
   // https://github.com/nemerosa/versioning
-  id 'net.nemerosa.versioning' version '2.14.0'
+  id 'net.nemerosa.versioning' version '3.1.0'
 }
 
 ext {
-  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/develop/v5/build.gradle"
-  interlokVersion = '5.0-SNAPSHOT'
-
-  includeWar='true'
+  testingCommonGradle = "https://raw.githubusercontent.com/interlok-testing/testing_common/refs/heads/master/common.gradle"
+//  testingCommonGradle = "../testing_common/common.gradle"
+  interlokTestingVersion = "0.1"
+  restAssuredVersion = "5.5.0"
 }
 
 allprojects {
-  apply from: "${interlokParentGradle}"
-  // specify the version of the configuration.
-  version=versioning.info.full
+  apply from: "${testingCommonGradle}"
 }
 
 
@@ -21,4 +19,12 @@ dependencies {
   interlokRuntime ("com.adaptris:interlok-amqp:$interlokVersion") { changing=true }
 
   interlokJavadocs group: "com.adaptris", name: "interlok-amqp", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+  testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
+  testImplementation 'com.rabbitmq:amqp-client:5.25.0'
+  testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
+  testImplementation "io.rest-assured:json-path:$restAssuredVersion"
+}
+
+tasks.named('functionalTest', Test) {
+  workingDir = "$projectDir"
 }

@@ -8,7 +8,7 @@
         <unique-id>amqp</unique-id>
         <user-name></user-name>
         <vendor-implementation class="rabbitmq-basic-jms-implementation">
-          <broker-url>amqp://guest:guest@localhost:5672/test</broker-url>
+          <broker-url>amqp://guest:guest@rabbitmq-1:5672/test</broker-url>
         </vendor-implementation>
       </jms-connection>
     </connections>
