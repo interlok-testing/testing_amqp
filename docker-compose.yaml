@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  interlok:
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      JAVA_OPTS:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    hostname: 'rabbitmq-1'
+
+
